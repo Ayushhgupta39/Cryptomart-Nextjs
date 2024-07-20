@@ -59,13 +59,13 @@ export default function Header() {
           <input
             type="text"
             placeholder="Search crypto..."
-            className="bg-gray-700 text-white px-4 py-2 rounded-full w-44 sm:w-64"
+            className="bg-gray-700 text-white px-4 py-2 rounded-full w-36 sm:w-64"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
           />
-          <SearchIcon className="h-5 w-5 absolute right-3 top-2.5 " />
+          <SearchIcon className="h-5 w-5 absolute hidden sm:flex right-3 top-2.5 " />
           {isFocused &&
             (suggestions.length > 0 || recentSearches.length > 0) && (
               <div className="absolute mt-1 w-full bg-white text-black rounded-md shadow-lg">
