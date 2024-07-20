@@ -2,12 +2,12 @@
 
 import { fetchCoinList } from "@/lib/api";
 import DraggableCoin from "@/components/DraggableCoin";
-import Watchlist from "@/components/Watchlist";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useState, useEffect } from "react";
 import Loader from "@/components/ui/Loader";
 import { useRouter } from "next/navigation";
+import Watchlist from "@/components/WatchList";
 
 const PaginationButton = ({ onClick, children, disabled }) => (
   <button
