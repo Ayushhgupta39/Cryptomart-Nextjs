@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CryptoMart
 
-## Getting Started
+This project is an assignment by Ayush Gupta for the role of Frontend Intern at Groww.
 
-First, run the development server:
+## Project Overview
+
+CryptoMart is a comprehensive web application designed to track and analyze various cryptocurrencies. This project was developed as an assignment for the role of Frontend Developer Intern at Groww. It provides real-time updates on cryptocurrency prices, detailed information on individual cryptocurrencies, and features such as an interactive watchlist.
+
+## Tech Stack
+
+- **Frontend Framework**: Next.js 14 (with App Router)
+- **Styling**: Tailwind CSS
+- **API Integration**: Coinranking API, CoinGecko API
+- **Charts**: Chart.js with react-chartjs-2
+- **Drag and Drop**: react-dnd
+- **Data Formatting**: millify
+
+## Features
+
+1. **Homepage**:
+   - Global Market Cap Chart: Displays line graph showing the global market cap data for cryptocurrencies.
+   - ![global_market](public/assets/images/image.png)
+   - Public Companies Holdings: Shows information about public companies holding Bitcoin and Ethereum.
+   - ![public_holdings](public/assets/images/image-1.png)
+
+2. **Explore Page**:
+   - Paginated Coin List: Displays a paginated grid of cryptocurrencies (20 items per page).
+   - ![explore_page](public/assets/images/image-2.png)
+   - Coin Details: Clicking on a coin card routes the user to the detailed product page of the selected cryptocurrency.
+   
+
+3. **Product Page**:
+   - Displays basic information about the selected cryptocurrency.
+   - Shows a line graph of the cryptocurrency's price over time.
+  - ![product_page](public/assets/images/image-3.png)
+
+4. **Draggable Watchlist**:
+   - Implements drag-and-drop functionality allowing users to easily add coins to their watchlist.
+   - ![watchlist](public/assets/images/image-4.png)
+
+5. **Responsive Design**:
+   - The application is fully responsive and works well on both desktop and mobile devices.
+   - ![mobile_screen](public/assets/images/image-5.png)
+
+## How to Run the Project
+1. Enter the Repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+cd Cryptomart-Nextjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Start the server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## Learn More
+*Note:* *Please do not forget to retrieve valid API Keys from both Coinranking and CoinGecko API.*
 
-To learn more about Next.js, take a look at the following resources:
+## Additional Notes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- This project uses `next/font` to automatically optimize and load Poppins, a custom Google Font.
+- The application implements caching strategies to optimize API usage and improve performance.
+- Error handling and loading states are implemented for a smooth user experience.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
