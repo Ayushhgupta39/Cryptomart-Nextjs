@@ -32,15 +32,8 @@ export default function Explore() {
   const router = useRouter();
   const [watchlist, setWatchlist] = useState([]);
 
-  const addToWatchlist = (coinName) => {
-    if (!watchlist.includes(coinName)) {
-      setWatchlist([...watchlist, coinName]);
-    }
-  };
-
   useEffect(() => {
     fetchCoins();
-    setLoading(false);
   }, [page]);
 
   async function fetchCoins() {
@@ -48,6 +41,7 @@ export default function Explore() {
     const data = await fetchCoinList(offset, pageSize);
     setCoins(data.coins);
     setTotalCoins(data.stats.total);
+    setLoading(false);
   }
 
   const totalPages = Math.ceil(totalCoins / pageSize);
@@ -56,7 +50,12 @@ export default function Explore() {
     <DndProvider backend={HTML5Backend}>
       <main className="container mx-auto mt-8 px-4">
         <h1 className="text-3xl font-semibold mb-4">Explore Markets</h1>
-        {!loading ? (
+        {!loading && coins.length === 0 && (
+          <p className="text-center">
+            No Coins Available at the moment. Please try later.
+          </p>
+        )}
+        {!loading && coins.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
             <div className="lg:col-span-3">
               <div className="relative overflow-x-auto">
@@ -92,7 +91,7 @@ export default function Explore() {
               </div>
 
               {/* Pagination */}
-              {!loading && (
+              {!loading && coins.length > 0 && (
                 <div className="my-8 flex justify-center items-center">
                   <div className="flex flex-col items-center">
                     <span className="text-sm text-gray-700 dark:text-gray-400">
@@ -130,7 +129,7 @@ export default function Explore() {
                 </div>
               )}
             </div>
-            {!loading && (
+            {!loading && coins.length > 0 && (
               <div className="lg:col-span-1">
                 <Watchlist />
               </div>
